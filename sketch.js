@@ -46,7 +46,7 @@ function setup() {
     plat3 = new Ground(450, 300, 200, 60);
     plat4 = new Ground(150, 200, 160, 60);
 
-    gold = new Gold(200, 30);
+    gold = new Gold(130, 30);
     textSize(50)
 }
 
@@ -105,7 +105,7 @@ function gameOver() {
     swal(
         {
             title: `You did it`,
-            text: "Thanks for playing",
+            text: "Thanks for playing, you are good in this!",
             imageUrl:
                 "gold.png",
             imageSize: "150x150",
