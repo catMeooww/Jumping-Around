@@ -14,6 +14,7 @@ var bg_img;
 var grass;
 var player;
 var button;
+var PlayerBubble = false;
 
 var inGround = true;
 var ended = false;
@@ -29,6 +30,7 @@ function preload() {
     grass = loadImage('grass.png');
     player = loadImage('player.png');
     goldbar = loadImage("gold.png");
+    bubble = loadImage("bubble.png");
 }
 
 function setup() {
@@ -41,10 +43,10 @@ function setup() {
     slime = new Player(player, 50, 600, 30, 30);
 
     //plataforms
-    plat1 = new Ground(450, 550, 200, 60);
-    plat2 = new Ground(200, 410, 200, 60);
-    plat3 = new Ground(450, 300, 200, 60);
-    plat4 = new Ground(150, 200, 160, 60);
+    plat1 = new Ground(45, 200, 600, 60);
+    plat2 = new Ground(350, 320, 200, 60);
+    plat3 = new Ground(150, 570, 100, 60);
+    bubblepad = new Bubble(140, 540);
 
     gold = new Gold(130, 30);
     textSize(50)
@@ -57,14 +59,18 @@ function draw() {
 
     Engine.update(engine);
     ground.show();
+
+    //player_data
     slime.show();
+    if (PlayerBubble) {
+        image(bubble, slime.body.position.x - 10, slime.body.position.y - 10, 50, 50);
+    }
 
     //show plataforms
     plat1.show();
     plat2.show();
     plat3.show();
-    plat4.show();
-
+    bubblepad.show();
     gold.show();
     //controls
     if (keyDown(control.right)) {
@@ -75,6 +81,20 @@ function draw() {
     }
     if (keyDown(control.up)) {
         jumping();
+    }
+
+    //bubble
+    var bubbling = Matter.SAT.collides(
+        slime.body,
+        bubblepad.body
+    );
+    if (bubbling.collided) {
+        engine.world.gravity.y = -0.4;
+        PlayerBubble = true;
+        setTimeout(() => {
+            engine.world.gravity.y = 1;
+            PlayerBubble = false;
+        },1500)
     }
 
     //golded
@@ -89,9 +109,9 @@ function draw() {
 }
 function jumping() {
     console.log("jump")
-    if (inGround) {
+    if (inGround && !PlayerBubble) {
         inGround = false;
-        Matter.Body.setVelocity(slime.body, {x:0,y:-10});
+        Matter.Body.setVelocity(slime.body, { x: 0, y: -10 });
         setTimeout(() => {
             inGround = true;
         }, 1200)
@@ -100,16 +120,16 @@ function jumping() {
 function gameOver() {
     swal(
         {
-            title: `Level 1 complete`,
+            title: `Level 2 complete`,
             text: "Thanks for playing, you are good in this!",
             imageUrl:
                 "gold.png",
             imageSize: "150x150",
-            confirmButtonText: "Next Level"
+            confirmButtonText: "Restart Game"
         },
         function (isConfirm) {
             if (isConfirm) {
-                window.location = "SecondLevel.html";
+                window.location = "index.html";
             }
         }
     );
