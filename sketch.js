@@ -91,14 +91,10 @@ function jumping() {
     console.log("jump")
     if (inGround) {
         inGround = false;
-        for (var i = 0; i < 160; i++) {
-            setTimeout(() => {
-                Matter.Body.translate(slime.body, { x: 0, y: -1 });
-            }, 100)
-        }
+        Matter.Body.setVelocity(slime.body, {x:0,y:-10});
         setTimeout(() => {
             inGround = true;
-        }, 600)
+        }, 1200)
     }
 }
 function gameOver() {
