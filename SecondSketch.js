@@ -43,10 +43,14 @@ function setup() {
     slime = new Player(player, 50, 600, 30, 30);
 
     //plataforms
-    plat1 = new Ground(45, 200, 600, 60);
-    plat2 = new Ground(350, 320, 200, 60);
-    plat3 = new Ground(150, 570, 100, 60);
+    plat1 = new Ground(45, 190, 600, 60);
+    plat2 = new Ground(310, 320, 200, 60);
+    plat3 = new Ground(155, 580, 100, 70);
+    plat4 = new Ground(260, 480, 100, 270);
+    plat5 = new Ground(400, 460, 200, 80);
+
     bubblepad = new Bubble(140, 540);
+    portal = new Portal(300,230,350,360);
 
     gold = new Gold(130, 30);
     textSize(50)
@@ -70,7 +74,12 @@ function draw() {
     plat1.show();
     plat2.show();
     plat3.show();
+    plat4.show();
+    plat5.show();
+
     bubblepad.show();
+    portal.show();
+
     gold.show();
     //controls
     if (keyDown(control.right)) {
@@ -81,6 +90,15 @@ function draw() {
     }
     if (keyDown(control.up)) {
         jumping();
+    }
+
+    //portals
+    var teleport = Matter.SAT.collides(
+        slime.body,
+        portal.body
+    );
+    if (teleport.collided) {
+        Matter.Body.setPosition(slime.body, { x: 350, y: 360 });
     }
 
     //bubble
