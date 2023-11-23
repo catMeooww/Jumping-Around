@@ -26,10 +26,10 @@ var control = {
 }
 
 function preload() {
-    bg_img = loadImage('/./background.png');
-    grass = loadImage('/./grass.png');
-    player = loadImage('/./player.png');
-    goldbar = loadImage("/./gold.png");
+    bg_img = loadImage('../background.png');
+    grass = loadImage('../grass.png');
+    player = loadImage('../player.png');
+    goldbar = loadImage("../gold.png");
 }
 
 function setup() {
@@ -40,7 +40,7 @@ function setup() {
 
         canvas = createCanvas(displayWidth, displayHeight);
     } else {
-        window.location = "/./index.html";
+        window.location = "../index.html";
     }
     canvas.parent(document.getElementById("main"));
     frameRate(80);
@@ -127,7 +127,7 @@ function gameOver() {
             title: `Level 1 complete`,
             text: "Thanks for playing, you are good in this! (better experience in computer version)",
             imageUrl:
-                "/./gold.png",
+                "../gold.png",
             imageSize: "150x150",
             confirmButtonText: "Reload"
         },
