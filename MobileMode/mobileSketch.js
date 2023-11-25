@@ -19,6 +19,12 @@ var button;
 var inGround = true;
 var ended = false;
 
+var control = {
+    left: 'LEFT_ARROW',
+    right: 'RIGHT_ARROW',
+    up: 'SPACE'
+}
+
 function preload() {
     bg_img = loadImage('../background.png');
     grass = loadImage('../grass.png');

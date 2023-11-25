@@ -29,6 +29,15 @@
         #main {
             background-color: aqua;
         }
+
+        #options{
+            border-bottom: 1px dashed green;
+        }
+        #options button{
+            background-color: green;
+            color: antiquewhite;
+            border: 3px ridge antiquewhite;
+        }
     </style>
 </head>
 
@@ -40,7 +49,7 @@
     <script src="../cubeplayer.js"></script>
     <script src="mobileSketch.js"></script>
     <section id="heading">
-        <button onclick="hideHeading()">&times;</button>
+        <div id="options"><button onclick="hideHeading()">&times;</button></div>
         <h4>Jumping Around</h4>
         <p>Jump on the plataforms to get the gold - Game by CatMeooww10</p>
         <p>Mobile Edition</p>

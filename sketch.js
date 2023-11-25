@@ -123,3 +123,6 @@ function gameOver() {
 function hideHeading() {
     document.getElementById("heading").innerHTML = "";
 }
+function ToMulti(){
+    window.location = "MultiplayerMode/MultiplayerGame.html"
+}
