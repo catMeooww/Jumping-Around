@@ -42,6 +42,10 @@
         .toModes{
             float:right;
         }
+        #tip{
+            background-color: brown;
+            float:left;
+        }
     </style>
 </head>
 
@@ -53,7 +57,7 @@
     <script src="cubeplayer.js"></script>
     <script src="sketch.js"></script>
     <section id="heading">
-        <div id="options"><button onclick="hideHeading()">&times;</button><button class="toModes" onclick="ToMulti()">Multiplayer</button><button class="toModes">Line Jumping</button></div>
+        <div id="options"><button id="tip"><b>TIP:</b> Move with arrows</button><button onclick="hideHeading()">&times;</button><button class="toModes" onclick="ToMulti()">Multiplayer</button><button class="toModes" onclick="ToLineplatform()">Line Jumping</button></div>
         <h3>Jumping Around</h3>
         <p>Jump on the plataforms to get the gold - Game by CatMeooww10</p>
         <p>First Level</p>

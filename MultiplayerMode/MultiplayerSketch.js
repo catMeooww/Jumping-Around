@@ -80,7 +80,7 @@ function draw() {
     //show plataforms
     plat1.show();
     elevator.show();
-    activator.show();
+    activator.show("blue");
     plat3.show();
     plat4.show();
     plat5.show();

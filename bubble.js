@@ -6,11 +6,11 @@ constructor(x,y){
     World.add(world, this.body);
 }
 
-show(){
+show(color){
     push();
     imageMode(CENTER);
     noStroke();
-    fill("blue");
+    fill(color);
     rect(this.x-10,this.y,50,15);
     pop();
 }

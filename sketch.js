@@ -21,7 +21,7 @@ var ended = false;
 var control = {
     left: 'LEFT_ARROW',
     right: 'RIGHT_ARROW',
-    up: 'SPACE'
+    up: 'UP_ARROW'
 }
 
 function preload() {
@@ -123,6 +123,10 @@ function gameOver() {
 function hideHeading() {
     document.getElementById("heading").innerHTML = "";
 }
+
 function ToMulti(){
-    window.location = "MultiplayerMode/MultiplayerGame.html"
+    window.location = "MultiplayerMode/MultiplayerGame.html";
+}
+function ToLineplatform(){
+    window.location = "LineMode/lineJumping.html";
 }

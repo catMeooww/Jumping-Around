@@ -22,7 +22,7 @@ var ended = false;
 var control = {
     left: 'LEFT_ARROW',
     right: 'RIGHT_ARROW',
-    up: 'SPACE'
+    up: 'UP_ARROW'
 }
 
 function preload() {
@@ -77,7 +77,7 @@ function draw() {
     plat4.show();
     plat5.show();
 
-    bubblepad.show();
+    bubblepad.show("blue");
     portal.show();
 
     gold.show();
