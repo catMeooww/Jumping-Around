@@ -4,13 +4,15 @@ _____________________________________________
 Get the gold to win the level, more levels will be added soon.
 _____________________________________________
 # Controls:
-Move with: Left Arrow and Right Arrow;
+Singleplayer: arrows
 _____________________________________________
-Jump with: Space Bar
+Multiplayer: wasd
 _____________________________________________
 # Developer notes
 This game can have a lot of bugs!!!
 If you want, you can download and edit to make your own.
+_____________________________________________
+Died? reload the page
 _____________________________________________
 There is a mobile version, but isn´t the best quality, so try the game in computer for a better gaming experience.
 _____________________________________________
