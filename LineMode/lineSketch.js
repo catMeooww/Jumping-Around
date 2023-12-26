@@ -31,10 +31,11 @@ function preload() {
     player = loadImage('../player.png');
     goldbar = loadImage("../gold.png");
     wood = loadImage("../wood.png");
+    gravel = loadImage("../gravel.png");
 }
 
 function setup() {
-    canvas = createCanvas(4000, 700);
+    canvas = createCanvas(1200, 700);
     canvas.parent(document.getElementById("main"));
     frameRate(80);
     engine = Engine.create();
@@ -61,6 +62,15 @@ function setup() {
     plat11 = new Ground(2050, 360, 160, 60);
     plat12 = new Ground(1600, 360, 160, 60);
     jumppad = new Bubble(1570, 325);
+    plat13 = new Ground(1080, 200, 200, 60);
+    plat14 = new Gravel(900, 200, 160, 60);
+    plat15 = new Ground(900, 400, 200, 60);
+    wall2 = new Ground(790, 100, 60, 200);
+    wall3 = new Ground(1030, 330, 60, 200);
+    plat16 = new Ground(600, 370, 160, 60);
+    plat17 = new Ground(400, 350, 160, 60);
+    plat18 = new Ground(200, 310, 200, 60);
+    stair = new Stair(140,190,10);
 
     gold = new Gold(130, 30);
     textSize(50)
@@ -69,8 +79,7 @@ function setup() {
 function draw() {
     background(51);
 
-    image(bg_img, 0, 0, width / 2, height);
-    image(bg_img, width / 2, 0, width / 2, height);
+    image(bg_img, camera.position.x - 600, 0, 1200,700);
 
     Engine.update(engine);
     ground.show();
@@ -94,6 +103,15 @@ function draw() {
     plat11.show();
     jumppad.show("green");
     plat12.show();
+    plat13.show();
+    plat14.show();
+    plat15.show();
+    wall2.show();
+    wall3.show();
+    plat16.show();
+    plat17.show();
+    plat18.show();
+    stair.show();
 
     gold.show();
     //controls
@@ -107,7 +125,25 @@ function draw() {
         jumping();
     }
 
+    camera.position.x = slime.body.position.x
+
     //colisions
+    var upstairs = Matter.SAT.collides(
+        slime.body,
+        stair.body
+    );
+    if(upstairs.collided){
+        Matter.Body.setVelocity(slime.body, { x: 0, y: -1 });
+    }
+
+    var fallgravel = Matter.SAT.collides(
+        slime.body,
+        plat14.body
+    );
+    if(fallgravel.collided){
+        Matter.Body.setStatic(plat14.body,false);
+    }
+
     var activation = Matter.SAT.collides(
         slime.body,
         pad.body
