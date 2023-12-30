@@ -207,7 +207,7 @@ function gameOver() {
             imageUrl:
                 "../gold.png",
             imageSize: "150x150",
-            confirmButtonText: "Reload"
+            confirmButtonText: "Restart"
         },
         function (isConfirm) {
             if (isConfirm) {

@@ -30,24 +30,47 @@
             background-color: aqua;
         }
 
-        #options{
+        #options {
             border-bottom: 1px dashed green;
         }
-        #options button{
+
+        #options button {
             background-color: green;
             color: antiquewhite;
             border: 3px ridge antiquewhite;
         }
 
-        .toModes{
-            float:right;
+        .toModes {
+            float: right;
         }
 
-        #tip{
+        .serverbutton {
+            background-color: blueviolet;
+            color: antiquewhite;
+            border: 3px ridge antiquewhite;
+        }
+
+        #tip {
             background-color: brown;
-            float:left;
+            float: left;
         }
     </style>
+    <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-database.js"></script>
+
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyDhM2XJg2u1d9xRd8ouEvaUvcg2ZjlUVuM",
+            authDomain: "jumping-around-data.firebaseapp.com",
+            databaseURL: "https://jumping-around-data-default-rtdb.firebaseio.com",
+            projectId: "jumping-around-data",
+            storageBucket: "jumping-around-data.appspot.com",
+            messagingSenderId: "806602286160",
+            appId: "1:806602286160:web:987a9f62d34c587ca15d55"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
 </head>
 
 <body>
@@ -58,12 +81,18 @@
     <script src="../bubble.js"></script>
     <script src="../gold.js"></script>
     <script src="../cubeplayer.js"></script>
-    <script src="MultiplayerSketch.js"></script>
+    <script src="ServerPlayerSketch.js"></script>
     <section id="heading">
-        <div id="options"><button id="tip"><b>TIP:</b> P1:arrows P2: WASD</button><button onclick="hideHeading()">&times;</button><button class="toModes" onclick="ToServer()">Server Multiplayer</button><button class="toModes" onclick="returnMain()">Return to Main Game</button></div>
+        <div id="options"><button id="tip"><b>TIP:</b> your friends can help you</button><button
+                onclick="hideHeading()">&times;</button><button class="toModes" onclick="ToLocal()">Local
+                Multiplayer</button><button class="toModes" onclick="returnMain()">Return to Main Game</button></div>
         <h3>Jumping Around</h3>
         <p>Jump on the plataforms to get the gold - Game by CatMeooww10</p>
-        <p>Local Multiplayer Mode</p>
+        <p>Server Multiplayer Mode: </p>
+        <div id="serverInfo">
+            <button class="serverbutton" onclick="selectPlayer(1)">P1</button><button class="serverbutton"
+                onclick="selectPlayer(2)">P2</button><button class="serverbutton" onclick="selectPlayer(3)">P3</button>
+        </div>
     </section>
     <hr>
     <section id="main">

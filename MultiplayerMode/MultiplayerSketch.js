@@ -165,7 +165,7 @@ function gameOver(who) {
                 imageUrl:
                     "../gold.png",
                 imageSize: "150x150",
-                confirmButtonText: "Try again"
+                confirmButtonText: "Restart"
             },
             function (isConfirm) {
                 if (isConfirm) {
@@ -181,7 +181,7 @@ function gameOver(who) {
                 imageUrl:
                     "../gold.png",
                 imageSize: "150x150",
-                confirmButtonText: "Try again"
+                confirmButtonText: "Restart"
             },
             function (isConfirm) {
                 if (isConfirm) {
@@ -196,4 +196,7 @@ function hideHeading() {
 }
 function returnMain() {
     window.location = "../index.html";
+}
+function ToServer() {
+    window.location = "../ServerMode/ServerPlayerGame.html";
 }
