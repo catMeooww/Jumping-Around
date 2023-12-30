@@ -6,7 +6,8 @@ _____________________________________________
 # Controls:
 Singleplayer: arrows
 _____________________________________________
-Multiplayer: wasd
+Multiplayer: local: WASD
+server: select a player to move with arrows
 _____________________________________________
 # Developer notes
 This game can have a lot of bugs!!!
